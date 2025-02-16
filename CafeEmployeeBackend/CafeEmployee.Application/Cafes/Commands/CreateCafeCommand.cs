@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace CafeEmployee.Application.Commands
+namespace CafeEmployee.Application.Features.Cafes.Commands
 {
     public class CreateCafeCommand : IRequest<CafeDto>
     {

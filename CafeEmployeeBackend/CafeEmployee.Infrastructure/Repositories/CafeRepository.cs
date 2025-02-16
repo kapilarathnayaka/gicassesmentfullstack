@@ -1,5 +1,5 @@
 using CafeEmployee.Domain.Entities;
-using CafeEmployee.Application.Interfaces;
+using CafeEmployee.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

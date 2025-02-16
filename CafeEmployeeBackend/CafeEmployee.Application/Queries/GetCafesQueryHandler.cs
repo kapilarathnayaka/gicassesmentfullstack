@@ -1,7 +1,7 @@
 using CafeEmployee.Dtos;
 using MediatR;
 
-namespace CafeEmployee.Application.Queries
+namespace CafeEmployee.Application.Features.Cafes.Queries
 {
     public class GetCafesQuery : IRequest<List<CafeDto>>
     {

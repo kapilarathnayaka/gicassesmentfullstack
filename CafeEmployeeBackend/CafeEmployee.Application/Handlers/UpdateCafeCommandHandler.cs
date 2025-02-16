@@ -1,6 +1,6 @@
 using MediatR;
 using CafeEmployee.Domain.Entities;
-using CafeEmployee.Application.Interfaces;
+using CafeEmployee.Domain.Interfaces;
 using System.Threading;
 using System.Threading.Tasks;
 
