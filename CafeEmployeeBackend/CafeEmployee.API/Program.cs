@@ -1,41 +1,59 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using CafeEmployee.Infrastructure.Data;
+using CafeEmployee.Application.Commands;
+using CafeEmployee.Application.Handlers;
+using CafeEmployee.Application.Queries;
+using CafeEmployee.Infrastructure.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// Add AutoFac for dependency injection
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
+{
+    containerBuilder.RegisterModule(new ApplicationModule());
+});
+
+// Add EF Core for database context
+builder.Services.AddDbContext<CafeEmployeeDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Add Mediator for CQRS
+builder.Services.AddMediatR(typeof(CreateCafeCommand).Assembly);
+builder.Services.AddMediatR(typeof(CreateCafeHandler).Assembly);
+builder.Services.AddMediatR(typeof(GetCafesQuery).Assembly);
+builder.Services.AddMediatR(typeof(GetCafesHandler).Assembly);
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+app.UseAuthorization();
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+app.MapControllers();
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+public class ApplicationModule : Module
 {
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    protected override void Load(ContainerBuilder builder)
+    {
+        builder.RegisterType<CafeRepository>().As<ICafeRepository>().InstancePerLifetimeScope();
+        builder.RegisterType<EmployeeRepository>().As<IEmployeeRepository>().InstancePerLifetimeScope();
+    }
 }

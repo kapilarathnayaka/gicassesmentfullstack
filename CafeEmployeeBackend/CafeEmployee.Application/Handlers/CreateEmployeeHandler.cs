@@ -1,21 +1,21 @@
 using MediatR;
 using CafeEmployee.Infrastructure.Repositories;
 
-namespace CafeEmployee.Application.Commands
+namespace CafeEmployee.Application.Features.Employees.Handlers
 {
-    public class CreateCafeCommandHandler : IRequestHandler<CreateCafeCommand, Guid>
+    public class CreateEmployeeHandler : IRequestHandler<CreateEmployeeCommand, Guid>
     {
-        private readonly ICafeRepository _cafeRepository;
+        private readonly IEmployeeRepository _employeeRepository;
 
-        public CreateCafeCommandHandler(ICafeRepository cafeRepository)
+        public CreateEmployeeHandler(IEmployeeRepository employeeRepository)
         {
-            _cafeRepository = cafeRepository;
+            _employeeRepository = employeeRepository;
         }
 
-        public async Task<Guid> Handle(CreateCafeCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
         {
-            var cafeId = await _cafeRepository.CreateCafeAsync(request.Name, request.Description, request.Location);
-            return cafeId;
+            var employeeId = await _employeeRepository.CreateEmployeeAsync(request.Name, request.Position, request.Age);
+            return employeeId;
         }
     }
 }
