@@ -3,7 +3,7 @@ using CafeEmployee.Dtos;
 using CafeEmployee.Domain.Entities;
 using CafeEmployee.Domain.Interfaces;
 
-namespace CafeEmployee.Application.Handlers
+namespace CafeEmployee.Application.Features.Cafes.Handlers
 {
     public class CreateCafeHandler : IRequestHandler<CreateCafeCommand, CafeDto>
     {
