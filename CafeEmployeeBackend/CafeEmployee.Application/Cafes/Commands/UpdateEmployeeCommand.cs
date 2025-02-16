@@ -1,12 +1,13 @@
 using MediatR;
 using System;
 
-namespace CafeEmployee.Application.Commands
+namespace CafeEmployee.Application.Features.Employees.Commands
 {
-    public class CreateCafeCommand : IRequest<Guid>
+    public class UpdateEmployeeCommand : IRequest<bool>
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public string Location { get; set; }
+        public string Position { get; set; }
+        public int Age { get; set; }
     }
 }
