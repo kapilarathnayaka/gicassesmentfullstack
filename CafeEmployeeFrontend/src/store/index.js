@@ -2,14 +2,16 @@ import { configureStore } from '@reduxjs/toolkit';
 import { cafeApi } from '../api/cafeApi';
 import { employeeApi } from '../api/employeeApi';
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
+    // Add the reducers for the APIs using their respective reducerPaths
     [cafeApi.reducerPath]: cafeApi.reducer,
     [employeeApi.reducerPath]: employeeApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(cafeApi.middleware, employeeApi.middleware),
+    getDefaultMiddleware()
+      .concat(cafeApi.middleware) // Add cafeApi middleware
+      .concat(employeeApi.middleware), // Add employeeApi middleware
 });
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export default store;
