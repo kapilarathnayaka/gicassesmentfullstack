@@ -6,28 +6,28 @@ export const cafeApi = createApi({
   endpoints: (builder) => ({
     getCafes: builder.query({
     //   query: (location = '') => `Cafe?location=${location}`,
-      query: () => `Cafe`,
+      query: () => `cafes`,
     }),
     GetCafeById: builder.query({
-      query: (id) => `Cafe/${id}`,
+      query: (id) => `cafes/${id}`,
     }),
     CreateCafe: builder.mutation({
       query: (newCafe) => ({
-        url: 'Cafe',
+        url: 'cafes',
         method: 'POST',
         body: newCafe,
       }),
     }),
     UpdateCafe: builder.mutation({
       query: (updatedCafe) => ({
-        url: `Cafe/${updatedCafe.id}`,
+        url: `cafes/${updatedCafe.id}`,
         method: 'PUT',
         body: updatedCafe,
       }),
     }),
     deleteCafe: builder.mutation({
       query: (id) => ({
-        url: `Cafe/${id}`,
+        url: `cafes/${id}`,
         method: 'DELETE',
       }),
     }),

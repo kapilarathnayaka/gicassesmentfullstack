@@ -1,13 +1,13 @@
-import { useGetCafesQuery, useDeleteCafeMutation } from '../../api/cafeApi';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
 import { AgGridReact } from "ag-grid-react";
 import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
 import { themeMaterial } from 'ag-grid-community'; 
-import { useNavigate } from 'react-router-dom';
-
+import { useGetCafesQuery, useDeleteCafeMutation } from '../../api/cafeApi';
+import Loader from '../Loader/Loader';
 // Register all Community features
 ModuleRegistry.registerModules([AllCommunityModule]);
-import { Button, TextField } from '@mui/material';
 
 const CafeList = () => {
   const navigate = useNavigate();
@@ -16,11 +16,11 @@ const CafeList = () => {
   const [deleteCafe] = useDeleteCafeMutation();
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (error) {
-    return <div>Error loading cafes.</div>;
+    return <div>Error loading cafes...</div>;
   }
 
   const handleDelete = async (id) => {
@@ -36,24 +36,17 @@ const CafeList = () => {
     }
   };
 
-  const handleLocationChange = (e) => {
-    setLocation(e.target.value);
-  };
-
   const columns = [
     {
       headerName: 'Logo',
       field: 'logo',
       flex: 1,
       cellRenderer: (params) => <img src={params.value} alt="logo" style={{
-        width: '100%',  // Ensure the image width fits the cell
-        height: '100%', // Ensure the image height fits the cell
-        objectFit: 'contain',
-        // Maintain aspect ratio and fit within the cell
+        width: '100%',  
+        height: '100%', 
+        objectFit: 'contain'
       }}
-
       />,
-
       width: 100,
       height: 100,
     },
@@ -64,8 +57,7 @@ const CafeList = () => {
         display: 'flex',          // Use flexbox for alignment
         alignItems: 'center',     // Vertically center the content
         justifyContent: 'left', // Horizontally center the content
-      },
-      
+      },  
     },
     {
       headerName: 'Description', field: 'description', flex: 3, cellStyle: {
@@ -118,12 +110,11 @@ const CafeList = () => {
     <div className="ag-theme-material" style={{ height: 600, width: '1500px' }}>
       <h2>Our Cafes</h2>
       <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px' }}>
-       
         <Button onClick={() => navigate('/cafe/create')} variant="contained">Add New Café</Button>
       </div>
 
       <AgGridReact
-        rowData={cafes}
+        rowData={cafes||[]}
         columnDefs={columns}
         pagination={true}
         rowHeight={50}

@@ -14,8 +14,6 @@ function App() {
   return (
     <Router>
       <Routes>
-
-
         <Route path="/" element={<CafeList />} />
         <Route path="/cafe/create" element={<CreateCafePage />} /> {/* Add this */}
         <Route path="/cafe/edit/:id" element={<EditCafePage />} />

@@ -7,38 +7,31 @@ export const employeeApi = createApi({
   }),
   endpoints: (builder) => ({
     getEmployees: builder.query({
-      query: () => `Employee`,
+      query: () => `employees`,
     }),
     getEmployeesByCafeId: builder.query({
-      query: (id) => `Employee/by-cafe/${id}`,
+      query: (id) => `employees/by-cafe/${id}`,
     }),
     getEmployeeById: builder.query({
-      query: (id) => `Employee/${id}`,
+      query: (id) => `employees/${id}`,
     }),
     createEmployee: builder.mutation({
       query: (newEmployee) => ({
-        url: 'Employee',
+        url: 'employees',
         method: 'POST',
         body: newEmployee,
       }),
     }),
-    updateEmployee: builder.mutation({
+    UpdateEmployee: builder.mutation({    
       query: (updatedEmployee) => ({
-        url: `Employee/${updatedEmployee.id}`,
+        url: `employees/${updatedEmployee.id}`,
         method: 'PUT',
         body: updatedEmployee,
       }),
     }),
-    addEmployee: builder.mutation({
-      query: (newEmployee) => ({
-        url: 'Employee',
-        method: 'POST',
-        body: newEmployee,
-      }),
-    }),
     deleteEmployee: builder.mutation({
       query: (id) => ({
-        url: `Employee/${id}`,
+        url: `employees/${id}`,
         method: 'DELETE',
       }),
     }),
@@ -47,10 +40,9 @@ export const employeeApi = createApi({
 
 export const { 
   useGetEmployeesQuery, 
-  useAddEmployeeMutation, 
-  useDeleteEmployeeMutation, 
   useCreateEmployeeMutation, 
   useUpdateEmployeeMutation,
   useGetEmployeesByCafeIdQuery,
-  useGetEmployeeByIdQuery
+  useGetEmployeeByIdQuery,
+  useDeleteEmployeeMutation 
 } = employeeApi;
