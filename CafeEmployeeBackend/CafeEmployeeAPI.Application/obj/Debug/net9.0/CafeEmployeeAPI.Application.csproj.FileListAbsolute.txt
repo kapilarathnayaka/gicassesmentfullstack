@@ -1,0 +1,16 @@
+/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/bin/Debug/net9.0/CafeEmployeeAPI.Application.deps.json
+/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/bin/Debug/net9.0/CafeEmployeeAPI.Application.dll
+/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/bin/Debug/net9.0/CafeEmployeeAPI.Application.pdb
+/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/bin/Debug/net9.0/CafeEmployeeAPI.Domain.dll
+/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/bin/Debug/net9.0/CafeEmployeeAPI.Domain.pdb
+/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/obj/Debug/net9.0/CafeEmployeeAPI.Application.csproj.AssemblyReference.cache
+/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/obj/Debug/net9.0/CafeEmployeeAPI.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/obj/Debug/net9.0/CafeEmployeeAPI.Application.AssemblyInfoInputs.cache
+/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/obj/Debug/net9.0/CafeEmployeeAPI.Application.AssemblyInfo.cs
+/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/obj/Debug/net9.0/CafeEmployeeAPI.Application.csproj.CoreCompileInputs.cache
+/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/obj/Debug/net9.0/CafeEmployeeAPI.Application.sourcelink.json
+/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/obj/Debug/net9.0/CafeEmpl.75C3A916.Up2Date
+/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/obj/Debug/net9.0/CafeEmployeeAPI.Application.dll
+/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/obj/Debug/net9.0/refint/CafeEmployeeAPI.Application.dll
+/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/obj/Debug/net9.0/CafeEmployeeAPI.Application.pdb
+/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/obj/Debug/net9.0/ref/CafeEmployeeAPI.Application.dll

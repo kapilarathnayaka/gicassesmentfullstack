@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/CafeEmployeeAPI.WebAPI.props" />
+</Project>

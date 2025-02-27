@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "nUZpebHdEiIIMfyGyuooKBlji1NnbnFpHhaPG0j4xxQ=",
+  "Source": "CafeEmployeeAPI.WebAPI",
+  "BasePath": "_content/CafeEmployeeAPI.WebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

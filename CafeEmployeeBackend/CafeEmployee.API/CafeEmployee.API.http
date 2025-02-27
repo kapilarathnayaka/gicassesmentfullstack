@@ -1,6 +1,0 @@
-@CafeEmployee.API_HostAddress = http://localhost:5276
-
-GET {{CafeEmployee.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

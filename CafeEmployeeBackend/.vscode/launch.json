@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch .NET Web API",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/CafeEmployeeApi.WebApi/bin/Debug/net9.0/CafeEmployeeApi.WebApi.dll",
+            "args": ["--urls", "http://localhost:5232"],
+            "cwd": "${workspaceFolder}/CafeEmployeeAPI.WebAPI",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "LAUNCH_PATH": "${workspaceFolder}/bin/Debug/netcoreapp3.1",
+            },
+            "sourceFileMap": {
+                "/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/": "${workspaceFolder}"
+            },
+            
+        },
+        {
+            "name": "Attach to Process",
+            "type": "coreclr",
+            "request": "attach"
+        }
+    ]
+}

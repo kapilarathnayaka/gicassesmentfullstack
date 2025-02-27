@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/CafeEmployeeAPI.WebAPI.props" />
+</Project>
