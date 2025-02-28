@@ -32,8 +32,8 @@ jobs:
           echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >> ~/.ssh/config
           # SSH to EC2 instance and deploy the Docker container
           ssh -o StrictHostKeyChecking=no ec2-user@${{secrets.AWS_EC2_INSTANCE_IP}} << 'EOF'
-            cd /home/ec2-user/CafeEmployeeBackend
+            cd /home/ec2-user/
             git pull origin main
-            docker build -t gic-test-image - /home/ec2-user/CafeEmployeeBackend/Dockerfile .
+            docker build -t gic-test-image .
             docker run -d -p 8080:80 gic-test-image
           EOF
