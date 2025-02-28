@@ -1,4 +1,4 @@
-name: Deploy to EC2 on Push Check
+name: Deploy to EC2 on Push
 
 on:
   push:
@@ -13,29 +13,42 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up AWS CLI
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
-
-      - name: SSH to EC2 and deploy Docker
+      - name: Set up SSH Key for EC2
         run: |
-          echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >> ~/.ssh/config
-          # SSH to EC2 instance and deploy the Docker container
-          ssh -o StrictHostKeyChecking=no ec2-user@${{secrets.AWS_EC2_INSTANCE_IP}} << 'EOF'
-          eval "$(ssh-agent -s)"
-          ssh-add ~/.ssh/id_rsa
-          git clone git@github.com:kapilarathnayaka/gicassesmentfullstack.git || (cd gicassesmentfullstack && git pull)
-          ls -la gicassesmentfullstack
-          cd gicassesmentfullstack/CafeEmployeeBackend
-          docker build -t gic-test-image .
-          docker run -d -p 8080:80 gic-test-image
-          EOF
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.AWS_EC2_INSTANCE_IP }} >> ~/.ssh/known_hosts
 
-         
-      
-      
-      
-      
+      - name: Deploy to EC2
+        run: |
+          ssh ec2-user@${{ secrets.AWS_EC2_INSTANCE_IP }} << 'EOF'
+            # Ensure SSH agent is running
+            eval "$(ssh-agent -s)"
+            ssh-add ~/.ssh/id_rsa
+            
+            # Navigate to home directory
+            # cd /home/ec2-user
+
+            # Clone or pull latest changes
+            if [ ! -d "gicassesmentfullstack" ]; then
+              git clone git@github.com:kapilarathnayaka/gicassesmentfullstack.git
+            else
+              cd gicassesmentfullstack
+              git pull origin main
+            fi
+            
+            # List files to confirm
+            ls -la gicassesmentfullstack
+            
+            # Move to backend folder and build Docker
+            cd gicassesmentfullstack/CafeEmployeeBackend
+            docker build -t gic-test-image .
+            
+            # Stop and remove old container if running
+            docker stop gic-container || true
+            docker rm gic-container || true
+
+            # Run new container
+            docker run -d --name gic-container -p 8080:80 gic-test-image
+          EOF
