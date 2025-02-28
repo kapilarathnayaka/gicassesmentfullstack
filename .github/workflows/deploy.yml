@@ -20,26 +20,14 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Clone the repo and deploy to EC2
+      - name: Deploy to EC2
         run: |
           ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.AWS_EC2_INSTANCE_IP }} << 'EOF'
-          # Change to the home directory
-          # cd /home/ec2-user
-
-          # Clone the repository (only if not already cloned)
-          if [ ! -d "gicassesmentfullstack" ]; then
-            git clone https://github.com/kapilarathnayaka/gicassesmentfullstack.git
-          fi
-
-          # Navigate to the backend folder where Dockerfile is located
+          eval "$(ssh-agent -s)"
+          ssh-add ~/.ssh/id_rsa
+          git clone git@github.com:kapilarathnayaka/gicassesmentfullstack.git || (cd gicassesmentfullstack && git pull)
+          ls -la gicassesmentfullstack
           cd gicassesmentfullstack/CafeEmployeeBackend
-
-          # Pull the latest code
-          git pull origin main
-
-          # Build the Docker image
-          docker build -t gic-test-image -f Dockerfile .
-
-          # Run the Docker container
+          docker build -t gic-test-image .
           docker run -d -p 8080:80 gic-test-image
           EOF
