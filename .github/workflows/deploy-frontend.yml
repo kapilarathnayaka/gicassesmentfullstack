@@ -29,6 +29,9 @@ jobs:
         run: npm run build
         working-directory: CafeEmployeeFrontend
 
+      - name: List files in build folder
+        run: ls -R ./CafeEmployeeFrontend/build
+        
       - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@v0.5.1
         with:
