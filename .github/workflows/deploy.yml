@@ -34,7 +34,7 @@ jobs:
           echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >> ~/.ssh/config
 
           # SSH to EC2 instance and deploy the Docker container
-          ssh -o StrictHostKeyChecking=no ec2-user@<EC2_PUBLIC_IP> << 'EOF'
+          ssh -o StrictHostKeyChecking=no ec2-user@${{secrets.AWS_EC2_INSTANCE_IP}} << 'EOF'
             cd /path/to/your/app
             git pull origin main
             docker build -t your-app .
