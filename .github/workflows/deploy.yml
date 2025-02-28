@@ -20,28 +20,26 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: SSH to EC2 and deploy Docker
+      - name: Clone the repo and deploy to EC2
         run: |
-          # Install SSH client and AWS CLI on the runner if not already available
-          sudo apt-get install -y openssh-client
-          # Set up SSH agent and key
-          mkdir -p ~/.ssh
-          echo "${{ secrets.EC2_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          # Disable strict host key checking to avoid SSH warnings
-          echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >> ~/.ssh/config
-          # SSH to EC2 instance and deploy the Docker container
-          ssh -o StrictHostKeyChecking=no ec2-user@${{secrets.AWS_EC2_INSTANCE_IP}} << 'EOF'
-          
-          # Clone the repository if it doesn't exist already
-          git clone https://github.com/kapilarathnayaka/gicassesmentfullstack.git /home/ec2-user/
-          ls -l
-          # Navigate to the 'CafeEmployeeBackend' folder inside the cloned repo
-          cd /home/ec2-user/gicassesmentfullstack/CafeEmployeeBackend
-          # List the files to confirm the Dockerfile is present
-          ls -l
-          # Build the Docker image using the Dockerfile inside the folder
-            docker build -t gic-test-image .
-          # Run the Docker container in detached mode and map ports
-            docker run -d -p 8080:80 gic-test-image
+          ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.AWS_EC2_INSTANCE_IP }} << 'EOF'
+          # Change to the home directory
+          cd /home/ec2-user
+
+          # Clone the repository (only if not already cloned)
+          if [ ! -d "gicassesmentfullstack" ]; then
+            git clone https://github.com/kapilarathnayaka/gicassesmentfullstack.git
+          fi
+
+          # Navigate to the backend folder where Dockerfile is located
+          cd gicassesmentfullstack/CafeEmployeeBackend
+
+          # Pull the latest code
+          git pull origin main
+
+          # Build the Docker image
+          docker build -t gic-test-image -f Dockerfile .
+
+          # Run the Docker container
+          docker run -d -p 8080:80 gic-test-image
           EOF
