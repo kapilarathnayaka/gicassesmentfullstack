@@ -34,6 +34,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no ec2-user@${{secrets.AWS_EC2_INSTANCE_IP}} << 'EOF'
             cd cd /home/ec2-user/CafeEmployeeBackend
             git pull origin main
-            docker build -t your-app .
-            docker run -d -p 8080:80 your-app
+            docker build -t gic-test-image .
+            docker run -d -p 8080:80 gic-test-image
           EOF
