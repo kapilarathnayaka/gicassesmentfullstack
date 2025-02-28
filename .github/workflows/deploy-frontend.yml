@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: 18  # Use the Node.js version you need
 
+      - name: Debug Repository Structure
+        run: ls -R
+
       - name: Install dependencies
         run: npm install
         working-directory: ../CafeEmployeeFrontEnd
