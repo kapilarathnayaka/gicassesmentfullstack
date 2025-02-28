@@ -31,17 +31,17 @@ jobs:
           # Disable strict host key checking to avoid SSH warnings
           echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >> ~/.ssh/config
           # SSH to EC2 instance and deploy the Docker container
-          ls -l
           ssh -o StrictHostKeyChecking=no ec2-user@${{secrets.AWS_EC2_INSTANCE_IP}} << 'EOF'
-            # Clone the repository if it doesn't exist already
-          git clone https://github.com/kapilarathnayaka/gicassesmentfullstack.git /home/ec2-user/gicassesmentfullstack
+          
+          # Clone the repository if it doesn't exist already
+          git clone https://github.com/kapilarathnayaka/gicassesmentfullstack.git /home/ec2-user/
           ls -l
           # Navigate to the 'CafeEmployeeBackend' folder inside the cloned repo
           cd /home/ec2-user/gicassesmentfullstack/CafeEmployeeBackend
           # List the files to confirm the Dockerfile is present
           ls -l
           # Build the Docker image using the Dockerfile inside the folder
-            docker build -t gic-test-image -f Dockerfile .
+            docker build -t gic-test-image .
           # Run the Docker container in detached mode and map ports
             docker run -d -p 8080:80 gic-test-image
           EOF
