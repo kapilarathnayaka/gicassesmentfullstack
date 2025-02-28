@@ -34,7 +34,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no ec2-user@${{secrets.AWS_EC2_INSTANCE_IP}} << 'EOF'
             # Clone the repository if it doesn't exist already
           if [ ! -d "/home/ec2-user/gicassesmentfullstack" ]; then
-            git clone https://github.com/kapilarathnayaka/gicassesmentfullstack.git /home/ec2-user/gicassesmentfullstack
+            git clone https://github.com/kapilarathnayaka/gicassesmentfullstack.git /home/ec2-user/
           else
           # Navigate to the directory and pull the latest changes if the repo already exists
             cd /home/ec2-user/gicassesmentfullstack
