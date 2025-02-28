@@ -24,7 +24,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.AWS_EC2_INSTANCE_IP }} << 'EOF'
           # Change to the home directory
-          cd /home/ec2-user
+          # cd /home/ec2-user
 
           # Clone the repository (only if not already cloned)
           if [ ! -d "gicassesmentfullstack" ]; then
