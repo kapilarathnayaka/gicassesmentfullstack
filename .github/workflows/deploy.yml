@@ -23,17 +23,20 @@ jobs:
       - name: Deploy to EC2
         run: |
           ssh ec2-user@${{ secrets.AWS_EC2_INSTANCE_IP }} << 'EOF'
-            # Ensure SSH agent is running
-            eval "$(ssh-agent -s)"
-            ssh-add ~/.ssh/id_rsa
-
-            pwd
+            # Install Git & Docker if not installed
+            sudo yum update -y
+            if ! command -v git &> /dev/null; then
+              sudo yum install -y git
+            fi
+            if ! command -v docker &> /dev/null; then
+              sudo yum install -y docker
+              sudo service docker start
+              sudo usermod -aG docker ec2-user
+            fi
             
             # Navigate to home directory
             cd /home/ec2-user
 
-            pwd
-            
             # Clone or pull latest changes
             if [ ! -d "gicassesmentfullstack" ]; then
               git clone git@github.com:kapilarathnayaka/gicassesmentfullstack.git
@@ -47,12 +50,16 @@ jobs:
             
             # Move to backend folder and build Docker
             cd gicassesmentfullstack/CafeEmployeeBackend
-            docker build -t gic-test-image .
+            if [ ! -f Dockerfile ]; then
+              echo "Dockerfile not found! Exiting."
+              exit 1
+            fi
             
             # Stop and remove old container if running
             docker stop gic-container || true
             docker rm gic-container || true
 
-            # Run new container
+            # Build and run the Docker container
+            docker build -t gic-test-image .
             docker run -d --name gic-container -p 8080:80 gic-test-image
           EOF
