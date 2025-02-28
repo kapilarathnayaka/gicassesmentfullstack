@@ -32,8 +32,18 @@ jobs:
           echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >> ~/.ssh/config
           # SSH to EC2 instance and deploy the Docker container
           ssh -o StrictHostKeyChecking=no ec2-user@${{secrets.AWS_EC2_INSTANCE_IP}} << 'EOF'
-            cd /home/ec2-user/
+            # Clone the repository if it doesn't exist already
+          if [ ! -d "/home/ec2-user/gicassesmentfullstack" ]; then
+            git clone https://github.com/kapilarathnayaka/gicassesmentfullstack.git /home/ec2-user/gicassesmentfullstack
+          else
+          # Navigate to the directory and pull the latest changes if the repo already exists
+            cd /home/ec2-user/gicassesmentfullstack
             git pull origin main
-            docker build -t gic-test-image .
+          fi
+          # Navigate to the backend folder
+            cd /home/ec2-user/gicassesmentfullstack/CafeEmployeeBackend
+          # Build the Docker image using the Dockerfile inside the folder
+            docker build -t gic-test-image -f Dockerfile .
+          # Run the Docker container in detached mode and map ports
             docker run -d -p 8080:80 gic-test-image
           EOF
