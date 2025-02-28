@@ -26,10 +26,14 @@ jobs:
             # Ensure SSH agent is running
             eval "$(ssh-agent -s)"
             ssh-add ~/.ssh/id_rsa
+
+            pwd
             
             # Navigate to home directory
-            # cd /home/ec2-user
+            cd /home/ec2-user
 
+            pwd
+            
             # Clone or pull latest changes
             if [ ! -d "gicassesmentfullstack" ]; then
               git clone git@github.com:kapilarathnayaka/gicassesmentfullstack.git
