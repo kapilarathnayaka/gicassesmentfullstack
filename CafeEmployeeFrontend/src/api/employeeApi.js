@@ -2,9 +2,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const employeeApi = createApi({
   reducerPath: 'employeeApi',
-  baseQuery: fetchBaseQuery({ 
-    baseUrl: 'http://localhost:5232/api/'
-  }),
+  // baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5232/api/'}),
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://54.82.91.72:8080/api/' }),
   endpoints: (builder) => ({
     getEmployees: builder.query({
       query: () => `employees`,
