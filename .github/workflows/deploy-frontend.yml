@@ -18,14 +18,20 @@ jobs:
         with:
           node-version: 18  # Use the Node.js version you need
 
+      - name: Debug Repository Structure
+        run: ls -R
+
       - name: Install dependencies
-        run: npm install
-        working-directory: ./CafeEmployeeFrontEnd
+        run: npm install --force
+        working-directory: CafeEmployeeFrontend
 
       - name: Build React app
         run: npm run build
-        working-directory: ./CafeEmployeeFrontEnd
+        working-directory: CafeEmployeeFrontend
 
+      - name: List files in build folder
+        run: ls -R ./CafeEmployeeFrontend/dist
+        
       - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@v0.5.1
         with:
@@ -35,4 +41,4 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
-          SOURCE_DIR: "build"
+          SOURCE_DIR: "./CafeEmployeeFrontend/dist"

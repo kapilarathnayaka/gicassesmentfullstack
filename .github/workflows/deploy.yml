@@ -18,23 +18,20 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: SSH to EC2 and deploy Docker
         run: |
           # Install SSH client and AWS CLI on the runner if not already available
           sudo apt-get install -y openssh-client
-
           # Set up SSH agent and key
           mkdir -p ~/.ssh
           echo "${{ secrets.EC2_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-
           # Disable strict host key checking to avoid SSH warnings
           echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >> ~/.ssh/config
-
           # SSH to EC2 instance and deploy the Docker container
-          ssh -o StrictHostKeyChecking=no ec2-user@<EC2_PUBLIC_IP> << 'EOF'
+          ssh -o StrictHostKeyChecking=no ec2-user@${{secrets.AWS_EC2_INSTANCE_IP}} << 'EOF'
             cd /path/to/your/app
             git pull origin main
             docker build -t your-app .
