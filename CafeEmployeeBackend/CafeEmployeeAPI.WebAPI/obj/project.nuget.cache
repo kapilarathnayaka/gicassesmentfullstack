@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "A69aYohKUCo=",
+  "dgSpecHash": "RqBCFssOzSY=",
   "success": true,
-  "projectFilePath": "/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.WebAPI/CafeEmployeeAPI.WebAPI.csproj",
+  "projectFilePath": "/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.WebAPI/CafeEmployeeAPI.WebAPI.csproj",
   "expectedPackageFiles": [
     "/Users/kapilarathnayaka/.nuget/packages/autofac/8.2.0/autofac.8.2.0.nupkg.sha512",
     "/Users/kapilarathnayaka/.nuget/packages/autofac.extensions.dependencyinjection/10.0.0/autofac.extensions.dependencyinjection.10.0.0.nupkg.sha512",

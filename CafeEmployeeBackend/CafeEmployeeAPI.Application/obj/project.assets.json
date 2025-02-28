@@ -862,11 +862,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/CafeEmployeeAPI.Application.csproj",
+      "projectUniqueName": "/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Application/CafeEmployeeAPI.Application.csproj",
       "projectName": "CafeEmployeeAPI.Application",
-      "projectPath": "/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/CafeEmployeeAPI.Application.csproj",
+      "projectPath": "/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Application/CafeEmployeeAPI.Application.csproj",
       "packagesPath": "/Users/kapilarathnayaka/.nuget/packages/",
-      "outputPath": "/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/obj/",
+      "outputPath": "/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Application/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/kapilarathnayaka/.nuget/NuGet/NuGet.Config"
@@ -881,8 +881,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Domain/CafeEmployeeAPI.Domain.csproj": {
-              "projectPath": "/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Domain/CafeEmployeeAPI.Domain.csproj"
+            "/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Domain/CafeEmployeeAPI.Domain.csproj": {
+              "projectPath": "/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Domain/CafeEmployeeAPI.Domain.csproj"
             }
           }
         }

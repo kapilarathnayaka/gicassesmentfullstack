@@ -6361,11 +6361,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.WebAPI/CafeEmployeeAPI.WebAPI.csproj",
+      "projectUniqueName": "/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.WebAPI/CafeEmployeeAPI.WebAPI.csproj",
       "projectName": "CafeEmployeeAPI.WebAPI",
-      "projectPath": "/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.WebAPI/CafeEmployeeAPI.WebAPI.csproj",
+      "projectPath": "/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.WebAPI/CafeEmployeeAPI.WebAPI.csproj",
       "packagesPath": "/Users/kapilarathnayaka/.nuget/packages/",
-      "outputPath": "/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.WebAPI/obj/",
+      "outputPath": "/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.WebAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/kapilarathnayaka/.nuget/NuGet/NuGet.Config"
@@ -6380,11 +6380,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/CafeEmployeeAPI.Application.csproj": {
-              "projectPath": "/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Application/CafeEmployeeAPI.Application.csproj"
+            "/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Application/CafeEmployeeAPI.Application.csproj": {
+              "projectPath": "/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Application/CafeEmployeeAPI.Application.csproj"
             },
-            "/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Infrastructure/CafeEmployeeAPI.Infrastructure.csproj": {
-              "projectPath": "/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Infrastructure/CafeEmployeeAPI.Infrastructure.csproj"
+            "/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Infrastructure/CafeEmployeeAPI.Infrastructure.csproj": {
+              "projectPath": "/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Infrastructure/CafeEmployeeAPI.Infrastructure.csproj"
             }
           }
         }
