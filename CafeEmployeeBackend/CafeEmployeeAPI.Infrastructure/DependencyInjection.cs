@@ -22,11 +22,6 @@ namespace CafeEmployeeAPI.Infrastructure
                   options.UseSqlServer(connectionString)
                 );
 
-
-            // Configure Entity Framework Core with MSSQL Express
-            // services.AddDbContext<ApplicationDbContext>(options =>
-            //     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-
             //Register repositories
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<ICafeRepository, CafeRepository>();
