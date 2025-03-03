@@ -17,6 +17,7 @@
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
                 "LAUNCH_PATH": "${workspaceFolder}/bin/Debug/netcoreapp3.1",
+                "CONNECTION_STRING":"Server=den1.mssql7.gear.host,1433;Database=gictestdb;User Id=gictestdb;Password=Abcd@1234;Encrypt=False"
             },
             "sourceFileMap": {
                 "/Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/": "${workspaceFolder}"

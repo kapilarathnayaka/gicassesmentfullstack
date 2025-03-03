@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "E8iAJWEpAc8=",
+  "dgSpecHash": "MUKv6sXtVXQ=",
   "success": true,
   "projectFilePath": "/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Infrastructure/CafeEmployeeAPI.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -36,6 +36,7 @@
     "/Users/kapilarathnayaka/.nuget/packages/microsoft.extensions.caching.memory/9.0.2/microsoft.extensions.caching.memory.9.0.2.nupkg.sha512",
     "/Users/kapilarathnayaka/.nuget/packages/microsoft.extensions.configuration/9.0.2/microsoft.extensions.configuration.9.0.2.nupkg.sha512",
     "/Users/kapilarathnayaka/.nuget/packages/microsoft.extensions.configuration.abstractions/9.0.2/microsoft.extensions.configuration.abstractions.9.0.2.nupkg.sha512",
+    "/Users/kapilarathnayaka/.nuget/packages/microsoft.extensions.configuration.environmentvariables/9.0.2/microsoft.extensions.configuration.environmentvariables.9.0.2.nupkg.sha512",
     "/Users/kapilarathnayaka/.nuget/packages/microsoft.extensions.configuration.fileextensions/9.0.2/microsoft.extensions.configuration.fileextensions.9.0.2.nupkg.sha512",
     "/Users/kapilarathnayaka/.nuget/packages/microsoft.extensions.configuration.json/9.0.2/microsoft.extensions.configuration.json.9.0.2.nupkg.sha512",
     "/Users/kapilarathnayaka/.nuget/packages/microsoft.extensions.dependencyinjection/9.0.2/microsoft.extensions.dependencyinjection.9.0.2.nupkg.sha512",

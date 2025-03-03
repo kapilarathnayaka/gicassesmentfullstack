@@ -9,11 +9,23 @@ namespace CafeEmployeeAPI.Infrastructure
 {
     public static class DependencyInjection
     {
+   
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+
+            var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING") 
+                           ?? configuration.GetConnectionString("DefaultConnection");
+            
+            Console.WriteLine("Connection String: " + connectionString);
+
+              services.AddDbContext<ApplicationDbContext>(options =>
+                  options.UseSqlServer(connectionString)
+                );
+
+
             // Configure Entity Framework Core with MSSQL Express
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            // services.AddDbContext<ApplicationDbContext>(options =>
+            //     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
             //Register repositories
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();

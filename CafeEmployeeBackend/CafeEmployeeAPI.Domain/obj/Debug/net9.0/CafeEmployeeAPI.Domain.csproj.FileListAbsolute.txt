@@ -10,3 +10,15 @@
 /Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Domain/obj/Debug/net9.0/refint/CafeEmployeeAPI.Domain.dll
 /Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Domain/obj/Debug/net9.0/CafeEmployeeAPI.Domain.pdb
 /Users/kapilarathnayaka/Desktop/code/gic_test/CafeEmployeeBackend/CafeEmployeeAPI.Domain/obj/Debug/net9.0/ref/CafeEmployeeAPI.Domain.dll
+/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Domain/bin/Debug/net9.0/CafeEmployeeAPI.Domain.deps.json
+/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Domain/bin/Debug/net9.0/CafeEmployeeAPI.Domain.dll
+/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Domain/bin/Debug/net9.0/CafeEmployeeAPI.Domain.pdb
+/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Domain/obj/Debug/net9.0/CafeEmployeeAPI.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Domain/obj/Debug/net9.0/CafeEmployeeAPI.Domain.AssemblyInfoInputs.cache
+/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Domain/obj/Debug/net9.0/CafeEmployeeAPI.Domain.AssemblyInfo.cs
+/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Domain/obj/Debug/net9.0/CafeEmployeeAPI.Domain.csproj.CoreCompileInputs.cache
+/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Domain/obj/Debug/net9.0/CafeEmployeeAPI.Domain.sourcelink.json
+/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Domain/obj/Debug/net9.0/CafeEmployeeAPI.Domain.dll
+/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Domain/obj/Debug/net9.0/refint/CafeEmployeeAPI.Domain.dll
+/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Domain/obj/Debug/net9.0/CafeEmployeeAPI.Domain.pdb
+/Users/kapilarathnayaka/Desktop/code/gicfinal/gicassesmentfullstack/CafeEmployeeBackend/CafeEmployeeAPI.Domain/obj/Debug/net9.0/ref/CafeEmployeeAPI.Domain.dll
