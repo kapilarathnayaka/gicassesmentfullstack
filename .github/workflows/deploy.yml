@@ -61,5 +61,7 @@ jobs:
 
             # Build and run the Docker container
             docker build -t gic-test-image .
-            docker run -d --name gic-container -p 8080:80 gic-test-image
+            #docker run -d --name gic-container -p 8080:80 gic-test-image
+            docker run -d -p 8080:80 -e CONNECTION_STRING=${{ secrets.CONNECTION_STRING }} --name mydebugappcontainer myapp;
+
           EOF
