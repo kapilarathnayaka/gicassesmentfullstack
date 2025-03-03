@@ -37,6 +37,8 @@ jobs:
             # Navigate to home directory
             cd /home/ec2-user
 
+            rm -rf gicassesmentfullstack
+
             # Clone or pull latest changes
             if [ ! -d "gicassesmentfullstack" ]; then
               git clone git@github.com:kapilarathnayaka/gicassesmentfullstack.git
@@ -54,14 +56,19 @@ jobs:
               echo "Dockerfile not found! Exiting."
               exit 1
             fi
+
+            #echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >> ~/.ssh/config
+            #ssh -o StrictHostKeyChecking=no ec2-user@${{secrets.AWS_EC2_INSTANCE_IP}} << 'EOF'
+            export CONNECTION_STRING="${{ secrets.CONNECTION_STRING }}"
             
             # Stop and remove old container if running
             docker stop gic-container || true
             docker rm gic-container || true
 
             # Build and run the Docker container
-            docker build -t gic-test-image .
+            docker build -t myapp .
             #docker run -d --name gic-container -p 8080:80 gic-test-image
-            docker run -d -p 8080:80 -e CONNECTION_STRING=${{ secrets.CONNECTION_STRING }} --name gic-container myapp;
+            #docker run -d -p 8080:80 -e CONNECTION_STRING=${{ secrets.CONNECTION_STRING }} --name gic-container myapp
+            docker run -d -p 8080:80 --name gic-container -e CONNECTION_STRING="$CONNECTION_STRING" myapp
 
           EOF
